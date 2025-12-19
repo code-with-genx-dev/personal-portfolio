@@ -24,4 +24,26 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-montserrat), var(--font-system);
+  background-size: 200px 200px;
+  background-position: 0 0;
+}
+
+.path {
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
+  animation: flow-line 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  filter: drop-shadow(0 0 6px rgba(39, 177, 115, 0.4))
+}
+
+
+@keyframes flow-line {
+  0% {
+    stroke-dashoffset: 3000;
+  }
+
+ 
+
+  100% {
+    stroke-dashoffset: 200;
+  }
 }
