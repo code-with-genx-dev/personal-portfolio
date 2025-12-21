@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Squada_One } from "next/font/google";
 import "./globals.css";
 import { DeviceProvider } from "@/components/DeviceProvider";
 
@@ -8,6 +8,13 @@ const montserrat = Montserrat({
   display: 'swap',
   variable: '--font-montserrat',
   weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+});
+
+const squadaOne = Squada_One({
+  subsets: ["latin"],
+  variable: "--font-squada",
+  display: "swap",
+  weight: "400", // Squada One has only one weight
 });
 
 export const metadata: Metadata = {
@@ -22,9 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${montserrat.variable} antialiased `}
-      >
+      <head>
+        <link rel="icon" href="/assets/skill.png" type="image/icon type"></link>
+      </head>
+      <body className={`${montserrat.variable}  ${squadaOne.variable} antialiased `}>
         <DeviceProvider>
           {children}
         </DeviceProvider>

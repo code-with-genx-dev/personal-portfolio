@@ -28,6 +28,14 @@ body {
   background-position: 0 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+.font-incognito {
+  font-family: var(--font-squada), sans-serif;
+}
+
 .path {
   stroke-dasharray: 3000;
   stroke-dashoffset: 3000;
@@ -41,9 +49,24 @@ body {
     stroke-dashoffset: 3000;
   }
 
- 
-
   100% {
     stroke-dashoffset: 200;
   }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }

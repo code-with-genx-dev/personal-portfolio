@@ -4,7 +4,7 @@ export default function HeroSvg() {
       viewBox="0 0 1273 906"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="lg:w-100 w-full h-full"
+      className="lg:w-112.5 w-full h-full"
     >
       <g>
         <path
