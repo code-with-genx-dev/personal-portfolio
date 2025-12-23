@@ -13,6 +13,7 @@ import Job from "@/components/Job";
 import Projects from "@/components/ProjectBuild";
 import Skills from "@/components/Skills";
 import BuildWith from "@/components/BuidWith";
+import ChatBot from "@/components/Chatbot";
 
 export default function Home() {
   //Navbar variables.
@@ -23,7 +24,7 @@ export default function Home() {
     { name: "Contact", link: "#contact" },
     { name: "Resume", link: "/resume/Visva_Resume.pdf" }
   ];
-  
+
   const footnavs = [
     { Icon: GoHome, nav: "Home", link: "#home" },
     { Icon: GoProject, nav: "Work", link: "#work" },
@@ -52,7 +53,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#101010] font-sans dark:bg-black relative  bg-[url('/assets/bg-noise.png')]  bg-repeat  bg-size-[200px_200px]">
       {/**Navbar section*/}
       <header className="md:flex sticky top-0 justify-center pt-5 hidden z-1000">
-        <nav className="border flex px-12 py-3 rounded-[30px] bg-[#101010]/30 backdrop-blur-md">
+        <nav className="flex px-12 py-3 rounded-[30px] bg-[#101010]/50 backdrop-blur-md">
           <ul className="flex gap-x-20 text-[#d6d6d6]">
             {
               navs?.map((item: any) => (
@@ -74,7 +75,7 @@ export default function Home() {
 
       {/* footer nav section*/}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
-        <nav className="w-full border rounded-xl bg-[#101010]/95 backdrop-blur-md py-3 px-4" aria-label="Footer navigation">
+        <nav className="w-full rounded-xl bg-[#101010]/95 backdrop-blur-md py-3 px-4" aria-label="Footer navigation">
           <ul className="flex items-center justify-around max-w-md mx-auto">
             {footnavs.map(({ Icon, nav, link }, index) => (
               <li key={index}>
@@ -93,8 +94,11 @@ export default function Home() {
         </nav>
       </div>
 
+      {/* chatbot section*/}
+      <ChatBot />
+
       {/* Main section*/}
-      <section id="home" className="text-amber-50 pt-6 md:pt-20 mx-5 md:mx-16">
+      <section id="home" className="text-white pt-6 md:pt-20 mx-5 md:mx-16">
         <div className="flex xl:flex-row flex-col xl:items-center items-center xl:justify-center justify-between gap-y-12 md:gap-y-0 md:gap-x-12">
           <Slide delay={0.14}>
             <div>
