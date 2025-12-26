@@ -1,12 +1,10 @@
-import OpenAI from "openai";
+import Groq from "groq-sdk";
 
-export const runtime = "nodejs"; 
+export const runtime = "nodejs";
 
-const client = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY!,
+const groq = new Groq({
+    apiKey: process.env.GROQ_API_KEY!,
 });
-console.log(client)
-console.log(process.env.OPENAI_API_KEY!,"process.env.OPENAI_API_KEY!")
 
 export const portfolioContext = `
 Name: Visva
@@ -36,7 +34,6 @@ Contact:
 `;
 
 export async function POST(req: Request) {
-    console.log(req)
     try {
         const { message } = await req.json();
 
@@ -47,9 +44,9 @@ export async function POST(req: Request) {
             );
         }
 
-        const response = await client.responses.create({
-            model: "gpt-4o-mini",
-            input: [
+        const completion  = await groq.chat.completions.create({
+            model: "openai/gpt-oss-120b",
+            messages: [
                 {
                     role: "system",
                     content: `You are Visva's portfolio assistant.Use the information below to answer accurately
@@ -69,11 +66,10 @@ export async function POST(req: Request) {
         });
 
         return Response.json({
-            reply: response.output_text ?? "",
+            reply: completion .choices[0].message.content ?? "",
         });
     } catch (error) {
         console.error("OpenAI Error:", error);
-
         return Response.json(
             { error: "Something went wrong" },
             { status: 500 }

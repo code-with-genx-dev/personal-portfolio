@@ -1,34 +1,81 @@
 @import "tailwindcss";
 
+/* =========================
+   THEME VARIABLES
+========================= */
+
+/*  Dark Theme (Default) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --font-system: -apple-system, system-ui, sans-serif;
+  --bg-primary: #101010;
+  --bg-secondary: #101010;
+
   --text-primary: #ffffff;
   --text-secondary: #e5e7eb;
   --text-muted: #9ca3af;
   --text-faded: #6b7280;
 
-  /* Accent */
-  --accent: #27b173;
-  --accent-soft: rgba(39, 177, 115, 0.5);
+  --accent-primary: #10b981;
+  --accent-secondary: #34d399;
 
-  /* Shadows */
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --bg-primary-blur: rgba(16, 16, 16, 0.3);
+  --bg-secondary-blur: rgba(16, 16, 16, 0.95);
+
+  /* Job section */
+  --job-bg: rgba(39, 39, 43, 0.4);
+  --job-border: rgba(48, 48, 48, 0.6);
+  --job-text-muted: #9ca3af;
+
+  /* Project section */
+  --project-bg: #27272b66;
+  --project-border: #30303098;
+  --project-chip-bg: rgba(39, 39, 43, 0.6);
+  --project-hover-border: #52525c;
+
+  --btn-primary-bg: #ffffff;
+  --btn-primary-text: #000000;
+  --btn-primary-hover: #e4e4e7;
+
+  --btn-outline-text: #d1d5dbcc;
+  --btn-outline-border: #3c3c3c;
+  --btn-outline-hover-bg: #27272b66;
+  --btn-outline-hover-border: #484848;
 }
 
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  display: none !important;  
-}
-.no-scrollbar::-webkit-scrollbar {
-  display: none !important;
-}
+/* Light Theme */
+[data-theme="light"] {
+  --bg-primary: #f6f6f6;
+  --bg-secondary: #f9fafb;
 
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar {
-  -ms-overflow-style: none !important;  /* IE and Edge */
-  scrollbar-width: none !important;  /* Firefox */
+  --text-primary: #3f3f46;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --text-faded: #9ca3af;
+
+  --accent-primary: #059669;
+  --accent-secondary: #10b981;
+
+  --bg-primary-blur: rgba(246, 246, 246, 0.5);
+  --bg-secondary-blur: rgba(246, 246, 246, 0.95);
+
+  /* Job section */
+  --job-bg: rgba(244, 244, 245, 0.4);
+  --job-border: rgba(133, 137, 147, 0.6);
+  --job-text-muted: #6b7280;
+
+  /* Project section */
+  --project-bg: #f4f4f566;
+  --project-border: #d1d5dbcc;
+  --project-chip-bg: rgba(229, 231, 235, 0.8);
+  --project-hover-border: #9f9fa9;
+
+  --btn-primary-bg: #000000;
+  --btn-primary-text: #ffffff;
+  --btn-primary-hover: #1a1a1a;
+
+  --btn-outline-text: #30303098;
+  --btn-outline-border: #cacaca;
+  --btn-outline-hover-bg: #b6b6b666;
+  --btn-outline-hover-border: #969697;
 }
 
 @theme inline {
@@ -38,69 +85,110 @@ body::-webkit-scrollbar {
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-montserrat), var(--font-system);
-  background-size: 200px 200px;
-  background-position: 0 0;
-}
-
-/* //light theme */
-[data-theme="light"] {
-  --bg-main: #fafafa;
-  --bg-soft: #f1f5f9;
-  --bg-card: #ffffff;
-  --bg-border: rgba(0, 0, 0, 0.1);
-
-  --text-primary: #0f172a;
-  --text-secondary: #1f2937;
-  --text-muted: #6b7280;
-  --text-faded: #94a3b8;
-
-  --accent: #16a34a;
-  --accent-soft: rgba(22, 163, 74, 0.5);
-}
+/* =========================
+   GLOBAL STYLES
+========================= */
 
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-montserrat), system-ui, sans-serif !important;
+}
+
+/* main {
+  background: url("/public/assets/bg-noise.png") 0 0 / 200px 200px no-repeat;
+} */
+
+/* Hide scrollbar */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =========================
+   TEXT UTILITIES
+========================= */
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-faded {
+  color: var(--text-faded);
+}
+
+.text-accent {
+  color: var(--accent-primary);
+}
+
+.text-accent-soft {
+  color: var(--accent-secondary);
+}
+
+.bg-primary {
+  background-color: var(--bg-primary)
+}
+
+.primary-blur {
+  background-color: var(--bg-primary-blur);
+}
+
+.secondary-blur {
+  background-color: var(--bg-secondary-blur);
+}
+
+/* =========================
+   FONTS
+========================= */
+
 .font-incognito {
   font-family: var(--font-squada), sans-serif;
 }
+
+/* =========================
+   ANIMATIONS
+========================= */
 
 .path {
   stroke-dasharray: 3000;
   stroke-dashoffset: 3000;
   animation: flow-line 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  filter: drop-shadow(0 0 6px rgba(39, 177, 115, 0.4))
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4));
 }
 
-
 @keyframes flow-line {
-  0% {
+  from {
     stroke-dashoffset: 3000;
   }
 
-  100% {
+  to {
     stroke-dashoffset: 200;
   }
 }
 
 @keyframes marquee {
-  0% {
+  from {
     transform: translateX(0);
   }
 
-  100% {
+  to {
     transform: translateX(-50%);
   }
 }
@@ -113,31 +201,14 @@ html {
   animation-play-state: paused;
 }
 
-/* Headings */
-.text-title {
-  color: var(--text-primary);
-  line-height: 1.1;
+.fade-left {
+  background: linear-gradient(to right,
+      var(--bg-primary) 0%,
+      transparent 100%);
 }
 
-.text-subtitle {
-  color: var(--text-secondary);
-}
-
-/* Body */
-.text-body {
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-
-.text-muted {
-  color: var(--text-muted);
-}
-
-.text-faded {
-  color: var(--text-faded);
-}
-
-/* Accent */
-.text-accent {
-  color: var(--accent);
+.fade-right {
+  background: linear-gradient(to left,
+      var(--bg-primary) 0%,
+      transparent 100%);
 }

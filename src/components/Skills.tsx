@@ -22,8 +22,8 @@ const Skills = () => {
 
     return (
         <div className="w-full rounded-2xl overflow-hidden py-8 relative">
-            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-50 bg-linear-to-r from-black/20 to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-50 bg-linear-to-l from-black/20 to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-50 bg-linear-to-r fade-left to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-50 bg-linear-to-l fade-right to-transparent z-10 pointer-events-none"></div>
             <div className="relative flex">
                 <div className="flex animate-marquee gap-8 md:gap-16">
                     {skills.map((skill, index) => (
@@ -39,7 +39,7 @@ const Skills = () => {
                                     className="w-10 h-10 object-contain"
                                 />
                                 {/* </div> */}
-                                <span className="text-xs md:text-sm text-zinc-300 text-center">{skill.name}</span>
+                                <span className="text-xs md:text-sm text-[text-secondary] dark:text-[text-secondary] text-center">{skill.name}</span>
                             </div>
                         </div>
                     ))}
@@ -57,7 +57,7 @@ const Skills = () => {
                                     className="w-10 h-10 object-contain"
                                 />
                                 {/* </div> */}
-                                <span className="text-xs md:text-sm text-zinc-300 text-center">{skill.name}</span>
+                                <span className="text-xs md:text-sm text-[text-secondary] dark:text-[text-secondary] text-center">{skill.name}</span>
                             </div>
                         </div>
                     ))}

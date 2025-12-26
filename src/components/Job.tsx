@@ -38,7 +38,7 @@ const Job: React.FC<props> = ({ deviceType }) => {
             return (
                 <>
                     {parts[0]}
-                    <span className="text-green-500">Present</span>
+                    <span className="text-[#10b981]">Present</span>
                     {parts[1]}
                 </>
             );
@@ -54,16 +54,16 @@ const Job: React.FC<props> = ({ deviceType }) => {
                         <Slide key={index} direction="left" delay={index * 0.2}>
                             <div className='flex items-start md:gap-x-9 gap-x-3 w-full pb-8'>
                                 <div className='flex flex-col items-center'>
-                                    <div className='w-16.25 h-16.25 rounded-md border border-[#30303098] p-2.5 bg-[#27272b66]'>
+                                    <div className='w-16.25 h-16.25 rounded-md border p-2.5  bg-(--job-bg) border-(--job-border)'>
                                         <img src={`${item?.logo}`} alt="" className="" />
                                     </div>
-                                    <div className='h-32 w-0.5 border-l border-[#30303098]'></div>
+                                    <div className='h-32 w-0.5 border-l border-(--job-border)'></div>
                                 </div>
                                 <div key={index} className={`flex flex-col gap-y-1 mb-5`}>
-                                    <p className="font-incognito text-xl">{item?.org}</p>
-                                    <p>{item?.role}</p>
-                                    <p className={`text-zinc-500 mb-1.5`}>{formatDuration(item.duration)}</p>
-                                    <p className="md:w-[65%] text-[#e5e7eb] text-sm">{item?.description}</p>
+                                    <p className="font-incognito text-xl text-(--text-primary)">{item?.org}</p>
+                                    <p className="text-sm font-semibold text-(--text-secondary)">{item?.role}</p>
+                                    <p className={`text-zinc-400 mb-1.5`}>{formatDuration(item.duration)}</p>
+                                    <p className="md:w-[65%] text-(--text-secondary) text-sm">{item?.description}</p>
                                 </div>
                             </div>
                         </Slide>

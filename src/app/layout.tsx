@@ -14,7 +14,7 @@ const squadaOne = Squada_One({
   subsets: ["latin"],
   variable: "--font-squada",
   display: "swap",
-  weight: "400", // Squada One has only one weight
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <head>
         <link rel="icon" href="/assets/skill.png" type="image/icon type"></link>
       </head>

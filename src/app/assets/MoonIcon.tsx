@@ -4,7 +4,7 @@ export default function MoonIcon() {
       width="22"
       height="22"
       viewBox="0 0 25 25"
-      fill="none"
+      fill="#10b981"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

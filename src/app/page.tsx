@@ -14,6 +14,7 @@ import Projects from "@/components/ProjectBuild";
 import Skills from "@/components/Skills";
 import BuildWith from "@/components/BuidWith";
 import ChatBot from "@/components/Chatbot";
+import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
   //Navbar variables.
@@ -41,7 +42,7 @@ export default function Home() {
   ];
 
   //Device check variable.
-  const { isMobile, isTablet } = useDevice();
+  const { isMobile, isTablet, isDesktop } = useDevice();
 
   const techs = [
     { name: "Next.js", icon: "nextjs" },
@@ -50,11 +51,12 @@ export default function Home() {
   ];
 
   return (
-    <main className="min-h-screen bg-[#101010] font-sans dark:bg-black relative  bg-[url('/assets/bg-noise.png')]  bg-repeat  bg-size-[200px_200px]">
+    <main className="min-h-screen bg-[bg-primary] font-sans dark:bg-[bg-primary] relative  bg-[url('/assets/bg-noise.png')]  bg-repeat  bg-size-[200px_200px]">
+
       {/**Navbar section*/}
       <header className="md:flex sticky top-0 justify-center pt-5 hidden z-1000">
-        <nav className="flex px-12 py-3 rounded-[30px] bg-[#101010]/50 backdrop-blur-md">
-          <ul className="flex gap-x-20 text-[#d6d6d6]">
+        <nav className="flex px-12 py-3 rounded-[30px] bg-[primary-blur] dark:bg-[primary-blur] backdrop-blur-md">
+          <ul className="flex gap-x-20 text-[text-muted] dark:text-[text-muted] ">
             {
               navs?.map((item: any) => (
                 <li key={item.name}>
@@ -62,7 +64,7 @@ export default function Home() {
                     href={item.link}
                     target={item.name === "Resume" ? "_blank" : undefined}
                     rel={item.name === "Resume" ? "noopener noreferrer" : undefined}
-                    className="cursor-pointer hover:text-white transition-colors"
+                    className="cursor-pointer dark:hover:text-[text-primary] hover:text-[text-primary] transition-colors"
                   >
                     {item.name}
                   </a>
@@ -72,10 +74,13 @@ export default function Home() {
           </ul>
         </nav>
       </header>
+      <div className="fixed right-5 md:top-8 top-2 z-1001">
+        <ThemeToggle />
+      </div>
 
       {/* footer nav section*/}
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50">
-        <nav className="w-full rounded-xl bg-[#101010]/95 backdrop-blur-md py-3 px-4" aria-label="Footer navigation">
+        <nav className="w-full rounded-xl bg-(--bg-secondary-blur) backdrop-blur-md py-3 px-4" aria-label="Footer navigation">
           <ul className="flex items-center justify-around max-w-md mx-auto">
             {footnavs.map(({ Icon, nav, link }, index) => (
               <li key={index}>
@@ -83,10 +88,10 @@ export default function Home() {
                   href={link}
                   target={nav === "Resume" ? "_blank" : undefined}
                   rel={nav === "Resume" ? "noopener noreferrer" : undefined}
-                  className="flex flex-col items-center gap-1 cursor-pointer hover:text-white transition-colors"
+                  className="flex flex-col items-center gap-1 cursor-pointer dark:hover:text-[text-primary] hover:text-[text-primary] transition-colors"
                 >
-                  <Icon size={20} className="text-[#d6d6d6]" />
-                  <p className="text-[#d6d6d6] text-[11px] font-medium">{nav}</p>
+                  <Icon size={20} className="text-[text-muted] dark:text-[text-muted]" />
+                  <p className="text-[text-muted] dark:text-[text-muted] text-[11px] font-medium">{nav}</p>
                 </a>
               </li>
             ))}
@@ -98,7 +103,7 @@ export default function Home() {
       <ChatBot />
 
       {/* Main section*/}
-      <section id="home" className="text-white pt-6 md:pt-20 mx-5 md:mx-16">
+      <section id="home" className="text-(--text-primary) pt-6 md:pt-20 mx-5 md:mx-16">
         <div className="flex xl:flex-row flex-col xl:items-center items-center xl:justify-center justify-between gap-y-12 md:gap-y-0 md:gap-x-12">
           <Slide delay={0.14}>
             <div>
@@ -106,16 +111,16 @@ export default function Home() {
                 Frontend engineer, component architect & design systems specialist
               </p>
               <br />
-              <p className="text-[14px] text-[#e5e7eb]">I'm Visva, a frontend developer with 1+ year of experience building scalable projects from client requirements. Passionate about clean code, modern web technologies, and creating elegant solutions for users.</p>
+              <p className="text-[14px] text-(--text-secondary)">I'm <span className="text-[#10b981]">Visva V</span>, a frontend developer with 1+ year of experience building scalable projects from client requirements. Passionate about clean code, modern web technologies, and creating elegant solutions for users.</p>
             </div>
             <div className="flex items-center gap-4 pt-8">
               {socials.map(({ Icon, link }: any, index: any) => (
                 <a key={index}
                   href={link}
                   target="_blank"
-                  className="h-12 w-12 rounded-xl border border-[#30303098] flex items-center justify-center cursor-pointer hover:text-white hover:bg-[white]/20 transition duration-300 ease-in-out"
+                  className="h-12 w-12 rounded-xl border border-[#30303098] flex items-center justify-center cursor-pointer dark:hover:text-[text-primary] hover:text-[text-primary] hover:bg-[black]/20 dark:hover:bg-[white]/20 transition duration-300 ease-in-out"
                 >
-                  <Icon size={24} className="text-[#e5e7eb]" />
+                  <Icon size={24} className="text-(--text-secondary)" />
                 </a>
               ))}
             </div>
@@ -143,11 +148,11 @@ export default function Home() {
         </div>
       </section> */}
       {/* Work section*/}
-      <section id="work" className="text-amber-50 mx-5 md:mx-16 pt-10 pb-30">
+      <section id="work" className="text-(--text-primary) mx-5 md:mx-16 pt-10 pb-30">
         <div>
           <Slide delay={0.14} direction="down">
             <>
-              <h1 className="font-incognito text-4xl mb-14">WORK EXPERIENCE</h1>
+              <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">WORK EXPERIENCE</h1>
               <div className="md:pl-14">
                 <Job deviceType={{ mob: isMobile, tab: isTablet }} />
               </div>
@@ -157,11 +162,11 @@ export default function Home() {
       </section>
 
       {/* Projects section*/}
-      <section id="projects" className="text-amber-50 mx-5 md:mx-16 pb-30">
+      <section id="projects" className="text-(--text-primary) mx-5 md:mx-16 pb-30">
         <div>
           <Slide delay={0.14} direction="down">
             <>
-              <h1 className="font-incognito text-4xl mb-14">Projects</h1>
+              <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">Projects</h1>
               <div className="">
                 <Projects />
               </div>
@@ -171,13 +176,15 @@ export default function Home() {
       </section>
 
       {/* contact section*/}
-      <section id="contact" className="text-amber-50 mx-5 md:mx-16 pb-32">
+      <section id="contact" className="text-(--text-primary) mx-5 md:mx-16 pb-32">
         <div className="flex items-center justify-center">
           <Slide delay={0.14} direction="down" className="flex flex-col gap-3">
-            <h1 className="font-incognito text-4xl mb-5 text-center">Lets Connects</h1>
-            <div className="text-center">Interested in discussing a project, collaboration, or just want to chat? Book a meeting with me and let's talk!</div>
+            <h1 className="font-incognito text-4xl mb-5 text-center text-(--text-primary)">Lets Connects</h1>
+            <div className="text-center text-(--text-secondary)">Interested in discussing a project, collaboration, or just want to chat? Book a meeting with me and let's talk!</div>
             <div className="flex items-center justify-center">
-              <a href="mailto:mrvisva591@gmail.com" className='flex items-center gap-x-2 cursor-pointer px-4 py-2 border border-[#30303098] text-white rounded-md text-sm font-medium hover:border-zinc-600 hover:bg-[#27272b66] transition-colors duration-200'>
+              <a href="mailto:mrvisva591@gmail.com"
+                onClick={(e) => { if (isDesktop || isTablet) { e.preventDefault(); window.open("https://mail.google.com/mail/?view=cm&fs=1&to=mrvisva591@gmail.com", "_blank") } }}
+                className='flex items-center gap-x-2 cursor-pointer px-4 py-2 border rounded-md text-sm font-medium border-(--btn-outline-border) text-(--btn-outline-text) hover:bg-(--btn-outline-hover-bg) hover:border-(--btn-outline-hover-border) transition-colors duration-200'>
                 <BiLogoGmail size={20} />
                 <p>Mail me!</p>
               </a>
@@ -186,11 +193,11 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="text-amber-50 mx-5 md:mx-16 ">
-        <hr className="border border-[#30303098] mb-8" />
+      <footer className="text-(text-primary) mx-5 md:mx-16 ">
+        <hr className="border border-(--btn-outline-border) font-extralight mb-8" />
         <div className="flex md:flex-row flex-col md:justify-between md:gap-0 gap-y-10 items-center pb-34 md:px-5">
           <BuildWith technologies={techs} />
-          <p className="text-[8px] md:[12px] text-zinc-300">Copyright © Visva V 2025 All rights Reserved</p>
+          <p className="text-[8px] md:[12px] text-(--text-secondary)">Copyright © Visva V 2025 All rights Reserved</p>
         </div>
       </footer>
     </main>

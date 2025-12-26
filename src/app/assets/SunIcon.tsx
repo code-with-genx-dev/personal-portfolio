@@ -1,7 +1,7 @@
 export default function SunIcon() {
   return (
     <svg
-      fill="currentColor"
+      fill="#10b981"
       width="22"
       height="22"
       viewBox="0 0 24 24"
