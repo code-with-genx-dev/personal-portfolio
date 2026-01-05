@@ -17,7 +17,11 @@ const Skills = () => {
         { name: "Git", icon: "git" },
         { name: "GitHub", icon: "github" },
         { name: "Firebase", icon: "firebase" },
-        { name: "Vercel", icon: "vercel" }
+        { name: "Vercel", icon: "vercel" },
+        { name: "NPM", icon: "npm" },
+        { name: "Postman", icon: "postman" },
+        { name: "VS Code", icon: "vscode" },
+        { name: "Powershell", icon: "powershell" },
     ];
 
     return (

@@ -27,27 +27,32 @@ const Projects: React.FC<ProjectsProps> = ({ deviceType }) => {
         {
             projectImg: "/assets/project/shadowqatar.svg",
             heading: "Quotation to Invoice",
-            subHeading: "A comprehensive quotation and invoice management system that streamlines business workflows. Built with modern technologies to deliver seamless user experience and efficient data handling.",
+            subHeading: "A comprehensive document management solution built with Next.js and Tailwind CSS that streamlines business operations. Features secure user authentication, automated quotation-to-invoice workflows, and integrated PDF generation. Implemented RESTful API architecture with Git version control for real-time document tracking and seamless inter-module communication.",
             techStack: [
-                { tech: "Next.js" },
-                { tech: "Nest.js" },
-                { tech: "Tailwind CSS" },
-                { tech: "MySQL" },
-                { tech: "Hostinger" }
+                { tech: "#Next.js" },
+                { tech: "#Nest.js" },
+                { tech: "#Tailwind CSS" },
+                { tech: "#Rest API" },
+                { tech: "#JWT" },
+                { tech: "#MySQL" },
+                { tech: "#Hostinger" }
             ],
             liveLink: "https://example.com",
             githubLink: "https://github.com/username/project"
         },
         {
             projectImg: "/assets/project/clarks.png",
-            heading: "E-Commerce Platform",
-            subHeading: "A full-featured e-commerce solution with advanced product filtering, secure payment integration, and real-time inventory management. Designed for optimal performance across all devices.",
+            heading: "Online Gallery Management System for Shoe Company",
+            subHeading: "A secure, role-based gallery platform designed for design teams to collaborate efficiently. Built with approval workflows, task management, and real-time notifications to enhance operational transparency. Enables seamless upload, review, and approval processes with admin oversight.",
             techStack: [
-                { tech: "Next.js" },
-                { tech: "Nest.js" },
-                { tech: "Tailwind CSS" },
-                { tech: "MySQL" },
-                { tech: "Hostinger" }
+                { tech: "#Next.js" },
+                { tech: "#Nest.js" },
+                { tech: "#Tailwind CSS" },
+                { tech: "#Rest API" },
+                { tech: "#FCM" },
+                { tech: "#JWT" },
+                { tech: "#MySQL" },
+                { tech: "#Hostinger" }
             ],
             liveLink: "https://example.com",
             githubLink: "https://github.com/username/project"
@@ -78,7 +83,7 @@ const Projects: React.FC<ProjectsProps> = ({ deviceType }) => {
                                 <h3 className='font-incognito text-2xl md:text-3xl font-semibold text-(--text-primary)'>
                                     {item.heading}
                                 </h3>
-                                <p className='text-(--text-secondary) text-sm md:text-base leading-relaxed'>
+                                <p className='text-(--text-secondary) text-[14px] md:text-[14px] leading-relaxed'>
                                     {item.subHeading}
                                 </p>
                                 <div className='flex flex-wrap gap-2 mt-2'>

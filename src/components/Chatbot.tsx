@@ -1,8 +1,8 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { RiChatAiLine, RiChatSmileAiFill } from "react-icons/ri";
-import { IoClose, IoSend } from "react-icons/io5";
+import { RiChatAiLine, RiChatSmileAiFill, RiSendPlaneFill } from "react-icons/ri";
+import { IoClose } from "react-icons/io5";
 import { ThinkingLoader } from "@/app/animation/Thinker";
 
 export default function ChatBot() {
@@ -60,7 +60,7 @@ export default function ChatBot() {
                             </div>
                             <IoClose className="text-accent cursor-pointer" size={20} onClick={() => setOpen(!open)} />
                         </div>
-                        <hr />
+                        <hr className="text-accent" />
 
                         <div className="h-56 overflow-y-auto text-sm text-white space-y-4 mt-2">
                             {messages.map((msg: any, i: any) => (
@@ -78,17 +78,17 @@ export default function ChatBot() {
                             {loading && <ThinkingLoader />}
                         </div>
 
-                        <div className="flex gap-2 mt-3">
+                        <div className="flex gap-2 mt-3 relative">
                             <input
-                                className="flex-1 bg-zinc-900 px-3 py-1 text-sm rounded text-white focus:border-[text-accent] focus:outline-[text-accent]"
+                                className="flex-1 bg-zinc-900 pl-3 pr-7 py-2 text-sm rounded text-white focus:border-[text-accent] focus:outline-[text-accent]"
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 placeholder="Ask me..."
                                 disabled={loading}
                                 onKeyDown={(e) => { if (e.key === "Enter") sendMessage(); }}
                             />
-                            <button className="text-[#27b173]" disabled={loading}>
-                                <IoSend onClick={sendMessage} className="text-accent cursor-pointer" size={23} />
+                            <button className="text-[#27b173] absolute right-1 top-1.5" disabled={loading}>
+                                <RiSendPlaneFill onClick={sendMessage} className="text-accent cursor-pointer" size={22} />
                             </button>
                         </div>
                     </motion.div>

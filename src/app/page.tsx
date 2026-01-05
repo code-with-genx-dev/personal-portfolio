@@ -1,10 +1,8 @@
 "use client"
 //Icon imports
-import { GoHome, GoProject } from "react-icons/go";
+import { GoFileDirectory, GoHome, GoProject } from "react-icons/go";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { BiLogoGmail } from "react-icons/bi";
-import { MdWorkOutline } from "react-icons/md";
-import { GrContact } from "react-icons/gr";
 import { AiOutlineFilePdf } from "react-icons/ai";
 import HeroSvg from "./assets/Herosvg";
 import { Slide } from "./animation/Slide";
@@ -15,6 +13,8 @@ import Skills from "@/components/Skills";
 import BuildWith from "@/components/BuidWith";
 import ChatBot from "@/components/Chatbot";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useEffect, useState } from "react";
+import { MdOutlineContactMail } from "react-icons/md";
 
 export default function Home() {
   //Navbar variables.
@@ -23,14 +23,14 @@ export default function Home() {
     { name: "Work", link: "#work" },
     { name: "Projects", link: "#projects" },
     { name: "Contact", link: "#contact" },
-    { name: "Resume", link: "/resume/Visva_Resume.pdf" }
+    { name: "Resume", link: "/assets/resume/VisvaV.pdf" }
   ];
 
   const footnavs = [
     { Icon: GoHome, nav: "Home", link: "#home" },
     { Icon: GoProject, nav: "Work", link: "#work" },
-    { Icon: MdWorkOutline, nav: "Projects", link: "#projects" },
-    { Icon: GrContact, nav: "Contact", link: "#contact" },
+    { Icon: GoFileDirectory, nav: "Projects", link: "#projects" },
+    { Icon: MdOutlineContactMail, nav: "Contact", link: "#contact" },
     { Icon: AiOutlineFilePdf, nav: "Resume", link: "/assets/resume/VisvaV.pdf" },
   ];
 
@@ -42,13 +42,35 @@ export default function Home() {
   ];
 
   //Device check variable.
-  const { isMobile, isTablet, isDesktop } = useDevice();
+  const { isTablet, isDesktop } = useDevice();
+
+  const [activeSection, setActiveSection] = useState("home");
 
   const techs = [
     { name: "Next.js", icon: "nextjs" },
     { name: "Tailwind CSS", icon: "tailwindcss" },
     { name: "Vercel", icon: "vercel" }
   ];
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    ["home", "work", "projects", "contact"].forEach((id) => {
+      const element = document.getElementById(id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className="min-h-screen bg-[bg-primary] font-sans dark:bg-[bg-primary] relative  bg-[url('/assets/bg-noise.png')]  bg-repeat  bg-size-[200px_200px]">
@@ -64,7 +86,7 @@ export default function Home() {
                     href={item.link}
                     target={item.name === "Resume" ? "_blank" : undefined}
                     rel={item.name === "Resume" ? "noopener noreferrer" : undefined}
-                    className="cursor-pointer dark:hover:text-[text-primary] hover:text-[text-primary] transition-colors"
+                    className={`cursor-pointer dark:hover:text-[text-primary] hover:text-[text-primary] font-semibold text-[14px] transition-colors ${activeSection === item.link.replace('#', '') ? 'text-[#10b981]' : 'hover:text-[text-primary]'}`}
                   >
                     {item.name}
                   </a>
@@ -111,7 +133,7 @@ export default function Home() {
                 Frontend engineer, component architect & design systems specialist
               </p>
               <br />
-              <p className="text-[14px] text-(--text-secondary)">I'm <span className="text-[#10b981]">Visva V</span>, a frontend developer with 1+ year of experience building scalable projects from client requirements. Passionate about clean code, modern web technologies, and creating elegant solutions for users.</p>
+              <p className="text-[14px] text-(--text-secondary)">I'm <span className="text-[#10b981]">Visva V</span>, a frontend developer specializing in React.js and Next.js with 1+ year of experience building scalable, user-focused web applications. I transform client requirements into production-ready solutions through clean code, modern web technologies, and thoughtful design.</p>
             </div>
             <div className="flex items-center gap-4 pt-8">
               {socials.map(({ Icon, link }: any, index: any) => (
@@ -129,32 +151,19 @@ export default function Home() {
             <HeroSvg />
           </Slide>
         </div>
-        <div className="py-10">
+        <div className="py-14">
           <Skills />
         </div>
       </section>
-      {/* About section*/}
-      {/* <section className="text-amber-50 mx-5 md:mx-16 py-20">
-        <div>
-          <Slide delay={0.14} direction="down">
-            <div>
 
-            </div>
-            <div className="">
-              <h1 className="font-incognito text-4xl mb-4">ABOUT</h1>
-              <p className="mt-3">I’m a frontend developer with over one year of hands-on experience building responsive, high-performance web applications. I specialize in React, Next.js, Tailwind CSS, and modern UI animations, with a strong focus on clean code and user-centric design. I enjoy turning complex ideas into elegant, scalable interfaces and continuously improving my skills by exploring new frontend technologies.</p>
-            </div>
-          </Slide>
-        </div>
-      </section> */}
       {/* Work section*/}
-      <section id="work" className="text-(--text-primary) mx-5 md:mx-16 pt-10 pb-30">
+      <section id="work" className="text-(--text-primary) mx-5 md:mx-16 pt-10 pb-24">
         <div>
           <Slide delay={0.14} direction="down">
             <>
               <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">WORK EXPERIENCE</h1>
               <div className="md:pl-14">
-                <Job deviceType={{ mob: isMobile, tab: isTablet }} />
+                <Job />
               </div>
             </>
           </Slide>
@@ -165,22 +174,20 @@ export default function Home() {
       <section id="projects" className="text-(--text-primary) mx-5 md:mx-16 pb-30">
         <div>
           <Slide delay={0.14} direction="down">
-            <>
-              <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">Projects</h1>
-              <div className="">
-                <Projects />
-              </div>
-            </>
+            <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">Projects</h1>
+            <div className="">
+              <Projects />
+            </div>
           </Slide>
         </div>
       </section>
 
       {/* contact section*/}
-      <section id="contact" className="text-(--text-primary) mx-5 md:mx-16 pb-32">
+      <section id="contact" className="text-(--text-primary) mx-5 md:mx-16 pt-10 pb-32">
         <div className="flex items-center justify-center">
           <Slide delay={0.14} direction="down" className="flex flex-col gap-3">
             <h1 className="font-incognito text-4xl mb-5 text-center text-(--text-primary)">Lets Connects</h1>
-            <div className="text-center text-(--text-secondary)">Interested in discussing a project, collaboration, or just want to chat? Book a meeting with me and let's talk!</div>
+            <div className="text-center text-[16px] text-(--text-secondary)">Interested in projects, career advice, job opportunities, or portfolio feedback? Book a call and let’s talk!</div>
             <div className="flex items-center justify-center">
               <a href="mailto:mrvisva591@gmail.com"
                 onClick={(e) => { if (isDesktop || isTablet) { e.preventDefault(); window.open("https://mail.google.com/mail/?view=cm&fs=1&to=mrvisva591@gmail.com", "_blank") } }}
@@ -193,6 +200,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Footer section */}
       <footer className="text-(text-primary) mx-5 md:mx-16 ">
         <hr className="border border-(--btn-outline-border) font-extralight mb-8" />
         <div className="flex md:flex-row flex-col md:justify-between md:gap-0 gap-y-10 items-center pb-34 md:px-5">
