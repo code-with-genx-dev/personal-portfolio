@@ -18,7 +18,7 @@
   }) => {
     return (
       <div className={`flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 ${className}`}>
-        <p className="text-(--text-secondary) text-xs sm:text-xs flex md:justify-center font-medium whitespace-nowrap">
+        <p className="text-(--text-secondary) text-[10px] sm:text-[10px] flex md:justify-center font-medium whitespace-nowrap">
           {title}
         </p>
         <div className="flex items-center gap-3 sm:gap-4 md:gap-6 flex-wrap">
@@ -32,7 +32,7 @@
                 alt={tech.name}
                 className="w-5 h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 object-contain"
               />
-              <p className="text-(--text-secondary) text-xs sm:text-xs md:text-[14px]">
+              <p className="text-(--text-secondary) text-[12px] sm:text-[12px] md:text-[12px]">
                 {tech.name}
               </p>
             </div>

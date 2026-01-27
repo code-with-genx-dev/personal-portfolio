@@ -39,6 +39,10 @@
   --btn-outline-border: #3c3c3c;
   --btn-outline-hover-bg: #27272b66;
   --btn-outline-hover-border: #484848;
+
+  /* Expirence card BG*/
+  
+  --exp-care-bg: #1c1f26;
 }
 
 /* Light Theme */
@@ -76,6 +80,9 @@
   --btn-outline-border: #cacaca;
   --btn-outline-hover-bg: #b6b6b666;
   --btn-outline-hover-border: #969697;
+
+  /* Expirence card BG*/
+  --exp-care-bg: #f5f5f5;
 }
 
 @theme inline {
@@ -167,19 +174,17 @@ body::-webkit-scrollbar {
 ========================= */
 
 .path {
-  stroke-dasharray: 3000;
-  stroke-dashoffset: 3000;
-  animation: flow-line 3s cubic-bezier(0.4, 0, 0.2, 1) infinite;
-  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4));
+  stroke-dasharray: 500px 100px;
+  animation: animate 100s linear infinite alternate-reverse;
 }
 
-@keyframes flow-line {
+@keyframes animate {
   from {
-    stroke-dashoffset: 3000;
+    stroke-dashoffset: 0;
   }
 
   to {
-    stroke-dashoffset: 200;
+    stroke-dashoffset: 12433.8193359375;
   }
 }
 

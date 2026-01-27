@@ -1,5 +1,5 @@
 import { Slide } from "@/app/animation/Slide"
-import { span } from "framer-motion/client";
+import { BsStars } from "react-icons/bs";
 
 const Job = () => {
     const works = [
@@ -76,23 +76,22 @@ const Job = () => {
             {
                 works?.map((item: any, index: any) => {
                     return (
-                        <Slide key={index} direction="left" delay={index * 0.2}>
-                            <div className='flex items-start md:gap-x-9 gap-x-3 w-full pb-8'>
-                                <div className='flex flex-col items-center'>
-                                    <div className='w-16.25 h-16.25 rounded-md border p-2.5  bg-(--job-bg) border-(--job-border)'>
+                        <Slide key={index} direction="left" className="md:mx-28 rounded-lg bg-(--exp-care-bg) mb-10" delay={index * 0.2}>
+                            <div className='flex flex-col md:flex-row items-start md:gap-x-8 gap-y-3 w-full h-full md:p-8 p-2 '>
+                                <div className='flex'>
+                                    <div className='w-16.25 h-16.25 rounded-md border p-2.5 md:justify-center  bg-(--job-bg) border-(--job-border)'>
                                         <img src={`${item?.logo}`} alt="" className="" />
                                     </div>
-                                    <div className='h-34 w-0.5 border-l border-(--job-border)'></div>
                                 </div>
                                 <div key={index} className={`flex flex-col gap-y-1 mb-5`}>
                                     <p className="font-incognito text-xl text-(--text-primary)">{item?.org}</p>
                                     <p className="text-sm font-semibold text-(--text-secondary)">{item?.role}</p>
-                                    <p className={`text-zinc-400 mb-1.5`}>{formatDuration(item.duration)}</p>
-                                    <div className="md:w-[68%] pl-4 text-(--text-secondary) text-sm space-y-1">
+                                    <p className={`text-zinc-400 text-[14px] mb-1.5`}>{formatDuration(item.duration)}</p>
+                                    <div className="md:pl-4 pt-3 text-(--text-secondary) text-sm space-y-4">
                                         {item?.description?.map((desc: any, i: number) => (
-                                            <div key={i} className="flex items-start gap-1 leading-6">
-                                            <span className="text-[#10b981] font-bold">#</span><p key={i}>{desc.point}</p>
-                                            </div>
+                                            <Slide direction="left" delay={0.2} key={i} className="flex items-start gap-1 leading-6">
+                                                <span className="text-[#10b981] font-bold"><BsStars size={20} className="mt-1" /></span><p key={i}>{desc.point}</p>
+                                            </Slide>
                                         ))}
                                     </div>
                                 </div>

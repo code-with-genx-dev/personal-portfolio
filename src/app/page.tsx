@@ -129,11 +129,11 @@ export default function Home() {
         <div className="flex xl:flex-row flex-col xl:items-center items-center xl:justify-center justify-between gap-y-12 md:gap-y-0 md:gap-x-12">
           <Slide delay={0.14}>
             <div>
-              <p className="font-incognito font-semibold tracking-normal text-3xl sm:text-5xl leading-12">
+              <p className="font-incognito font-semibold  text-3xl sm:text-5xl leading-12">
                 Frontend engineer, component architect & design systems specialist
               </p>
               <br />
-              <p className="text-[14px] text-(--text-secondary)">I'm <span className="text-[#10b981]">Visva V</span>, a frontend developer specializing in React.js and Next.js with 1+ year of experience building scalable, user-focused web applications. I transform client requirements into production-ready solutions through clean code, modern web technologies, and thoughtful design.</p>
+              <p className="md:text-[16px] text-[14px] md:w-[90%] text-(--text-secondary)">I'm <span className="text-[#10b981]">Visva V</span>, a frontend developer with 1+ year experience in React.js and Next.js, building scalable, user-focused, modern, production-ready web applications.</p>
             </div>
             <div className="flex items-center gap-4 pt-8">
               {socials.map(({ Icon, link }: any, index: any) => (
@@ -162,9 +162,7 @@ export default function Home() {
           <Slide delay={0.14} direction="down">
             <>
               <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">WORK EXPERIENCE</h1>
-              <div className="md:pl-14">
-                <Job />
-              </div>
+                <Job/>
             </>
           </Slide>
         </div>
