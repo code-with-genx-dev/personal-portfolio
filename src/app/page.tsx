@@ -23,7 +23,7 @@ export default function Home() {
     { name: "Work", link: "#work" },
     { name: "Projects", link: "#projects" },
     { name: "Contact", link: "#contact" },
-    { name: "Resume", link: "/assets/resume/VisvaV.pdf" }
+    { name: "Resume", link: "https://drive.google.com/file/d/1z_0HVhTmIsYgoHTXzR0JhIo2FIMsbOqt/view?usp=sharing" }
   ];
 
   const footnavs = [
@@ -31,7 +31,7 @@ export default function Home() {
     { Icon: GoProject, nav: "Work", link: "#work" },
     { Icon: GoFileDirectory, nav: "Projects", link: "#projects" },
     { Icon: MdOutlineContactMail, nav: "Contact", link: "#contact" },
-    { Icon: AiOutlineFilePdf, nav: "Resume", link: "/assets/resume/VisvaV.pdf" },
+    { Icon: AiOutlineFilePdf, nav: "Resume", link: "https://drive.google.com/file/d/1z_0HVhTmIsYgoHTXzR0JhIo2FIMsbOqt/view?usp=sharing" },
   ];
 
   //Social media links
