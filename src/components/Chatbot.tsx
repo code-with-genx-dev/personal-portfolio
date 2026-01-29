@@ -51,7 +51,7 @@ export default function ChatBot() {
                         initial={{ opacity: 0, y: 40 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 40 }}
-                        className="fixed bottom-20 right-6 w-80 bg-black border border-white/10 rounded-xl px-4 pb-4 z-1000 no-scrollbar"
+                        className="fixed bottom-20 right-6 w-80 bg-[#1a1a1a] border border-white/10 rounded-xl px-4 pb-4 z-1000 no-scrollbar"
                     >
                         <div className="flex items-center justify-between py-3">
                             <div className="flex items-center gap-2 text-[14px]">
@@ -62,25 +62,31 @@ export default function ChatBot() {
                         </div>
                         <hr className="text-accent" />
 
-                        <div className="h-56 overflow-y-auto text-sm text-white space-y-4 mt-2">
-                            {messages.map((msg: any, i: any) => (
-                                <div key={i} className={`flex text-[12px] leading-relaxed ${msg?.role === "user" ? "justify-end" : "text-start"}`}>
-                                    <div className={`max-w-[80%] px-2 py-1 rounded-md text-sm ${msg.role === "user" ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white" : "bg-zinc-800 text-gray-200"}`}>
-                                        <span className=" font-medium text-xs mb-1 opacity-70">
-                                            {msg?.role === "user" ? "You: " : "Tony: "}
-                                        </span>
-                                        <span className={``}>
-                                            {msg?.text}
-                                        </span>
-                                    </div>
+                        <div className="h-56 overflow-y-auto text-sm text-white space-y-4 mt-2 no-scrollbar">
+                            {messages.length === 0 && !loading ?
+                                <div className="flex flex-col items-center justify-center relative">
+                                    <img src="/assets/ai-chat.png" className="h-55 w-55" alt="" />
+                                    <p className="text-[#059669] text-[12px] absolute bottom-8">How can I help you today?</p>
                                 </div>
-                            ))}
+                                :
+                                messages.map((msg: any, i: any) => (
+                                    <div key={i} className={`flex text-[12px] leading-relaxed ${msg?.role === "user" ? "justify-end" : "text-start"}`}>
+                                        <div className={`max-w-[80%] px-2 py-1 rounded-md text-sm ${msg.role === "user" ? "bg-gradient-to-r from-emerald-500 to-teal-500 text-white" : "bg-zinc-800 text-gray-200"}`}>
+                                            <span className=" font-medium text-[11px] mb-1 opacity-70">
+                                                {msg?.role === "user" ? "You: " : "Tony: "}
+                                            </span>
+                                            <span className={`text-[11px]`}>
+                                                {msg?.text}
+                                            </span>
+                                        </div>
+                                    </div>
+                                ))}
                             {loading && <ThinkingLoader />}
                         </div>
 
                         <div className="flex gap-2 mt-3 relative">
                             <input
-                                className="flex-1 bg-zinc-900 pl-3 pr-7 py-2 text-sm rounded text-white focus:border-[text-accent] focus:outline-[text-accent]"
+                                className="flex-1 bg-zinc-800 pl-3 pr-7 text-white py-2 text-[12px] rounded  border-none focus:border-[#059669] focus:outline-[#059669]"
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 placeholder="Ask me..."

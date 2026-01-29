@@ -21,7 +21,7 @@
   --bg-secondary-blur: rgba(16, 16, 16, 0.95);
 
   /* Job section */
-  --job-bg: rgba(39, 39, 43, 0.4);
+  --job-bg: rgba(68, 68, 68, 0.4);
   --job-border: rgba(48, 48, 48, 0.6);
   --job-text-muted: #9ca3af;
 
@@ -41,8 +41,8 @@
   --btn-outline-hover-border: #484848;
 
   /* Expirence card BG*/
-  
-  --exp-care-bg: #1c1f26;
+
+  --exp-care-bg: #1f1f1f;
 }
 
 /* Light Theme */
@@ -62,7 +62,7 @@
   --bg-secondary-blur: rgba(246, 246, 246, 0.95);
 
   /* Job section */
-  --job-bg: rgba(244, 244, 245, 0.4);
+  --job-bg: rgba(182, 182, 182, 0.4);
   --job-border: rgba(133, 137, 147, 0.6);
   --job-text-muted: #6b7280;
 
@@ -82,7 +82,7 @@
   --btn-outline-hover-border: #969697;
 
   /* Expirence card BG*/
-  --exp-care-bg: #f5f5f5;
+  --exp-care-bg: #d5d5d5;
 }
 
 @theme inline {
@@ -207,13 +207,9 @@ body::-webkit-scrollbar {
 }
 
 .fade-left {
-  background: linear-gradient(to right,
-      var(--bg-primary) 0%,
-      transparent 100%);
+  background: linear-gradient(to right, var(--bg-primary) 0%, transparent 100%);
 }
 
 .fade-right {
-  background: linear-gradient(to left,
-      var(--bg-primary) 0%,
-      transparent 100%);
+  background: linear-gradient(to left, var(--bg-primary) 0%, transparent 100%);
 }
