@@ -15,6 +15,7 @@ import ChatBot from "@/components/Chatbot";
 import ThemeToggle from "@/components/ThemeToggle";
 import { useEffect, useState } from "react";
 import { MdOutlineContactMail } from "react-icons/md";
+import AboutCards from "@/components/About";
 
 export default function Home() {
   //Navbar variables.
@@ -23,7 +24,7 @@ export default function Home() {
     { name: "Work", link: "#work" },
     { name: "Projects", link: "#projects" },
     { name: "Contact", link: "#contact" },
-    { name: "Resume", link: "https://drive.google.com/file/d/1z_0HVhTmIsYgoHTXzR0JhIo2FIMsbOqt/view?usp=sharing" }
+    { name: "Resume", link: "https://drive.google.com/file/d/1LopJaTaKwTFeTMUwwizOXsczeGcem6vW/view?usp=sharing" }
   ];
 
   const footnavs = [
@@ -31,7 +32,7 @@ export default function Home() {
     { Icon: GoProject, nav: "Work", link: "#work" },
     { Icon: GoFileDirectory, nav: "Projects", link: "#projects" },
     { Icon: MdOutlineContactMail, nav: "Contact", link: "#contact" },
-    { Icon: AiOutlineFilePdf, nav: "Resume", link: "https://drive.google.com/file/d/1z_0HVhTmIsYgoHTXzR0JhIo2FIMsbOqt/view?usp=sharing" },
+    { Icon: AiOutlineFilePdf, nav: "Resume", link: "https://drive.google.com/file/d/1LopJaTaKwTFeTMUwwizOXsczeGcem6vW/view?usp=sharing" },
   ];
 
   //Social media links
@@ -135,7 +136,7 @@ export default function Home() {
               <br />
               <p className="md:text-[16px] text-[14px] md:w-[90%] text-(--text-secondary)">I'm <span className="text-[#10b981]">Visva V</span>, a frontend developer with 1+ year experience in React.js and Next.js, building scalable, user-focused, modern, production-ready web applications.</p>
             </div>
-            <div className="flex items-center gap-4 pt-8">
+            <Slide delay={0.14} direction="left" className="flex items-center gap-4 pt-8">
               {socials.map(({ Icon, link }: any, index: any) => (
                 <a key={index}
                   href={link}
@@ -145,7 +146,7 @@ export default function Home() {
                   <Icon size={24} className="text-(--text-secondary)" />
                 </a>
               ))}
-            </div>
+            </Slide>
           </Slide>
           <Slide delay={0.14} direction="down">
             <HeroSvg />
@@ -156,14 +157,22 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="about" className="text-(--text-primary) mx-5 md:mx-16 pt-20 pb-26">
+        <div>
+          <Slide delay={0.14} direction="down" className="flex flex-col items-center">
+              <h1 className="font-incognito text-4xl text-center mb-4 text-(--text-primary)">ABOUT ME!</h1>
+              <AboutCards />
+          </Slide>
+        </div>
+
+      </section>
+
       {/* Work section*/}
       <section id="work" className="text-(--text-primary) mx-5 md:mx-16 pt-10 pb-24">
         <div>
           <Slide delay={0.14} direction="down">
-            <>
               <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">WORK EXPERIENCE</h1>
-                <Job/>
-            </>
+              <Job />
           </Slide>
         </div>
       </section>

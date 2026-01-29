@@ -10,15 +10,14 @@ const Job = () => {
             duration: "SEP 11 2024 - Present",
             description: [
                 {
-                    point: "Architected scalable HRMS frontend modules using Next.js, following modular component architecture, responsive Tailwind CSS layouts, and reusable design patterns across payroll features."
+                    "point": "Led frontend development of HRMS modules including Leave, Attendance using Next.js, TypeScript, and Tailwind CSS with scalable component architecture and modular design patterns."
                 },
                 {
-                    point: "Designed and implemented a configurable Leave Management system in Next.js, integrating RESTful APIs, Payroll, and Attendance workflows with policy-driven validations using Zod."
+                    "point": "Designed and implemented dynamic, configuration-driven form systems with reusable components, handling complex business rules, validations, and state management using Zod."
                 },
                 {
-                    point: "Developed statutory payroll configurations for Bonus, Gratuity, and Form 16, enabling secure tax document generation, FCM notifications, and performance optimizations within Agile sprints."
+                    "point": "Owned UI debugging, refactoring, and optimization across multiple modules, delivering statutory payroll features like Bonus, Gratuity, and Form 16 while collaborating in Agile CI/CD-driven production releases."
                 }
-
             ]
         },
         {
@@ -28,15 +27,16 @@ const Job = () => {
             duration: "JUL 10 2024 - SEP 10 2024",
             description: [
                 {
-                    point: "Supported frontend development using Next.js, and Tailwind CSS, contributing reusable UI components for HRMS application features."
+                    "point": "Strengthened frontend fundamentals by building React and Next.js components while learning core design principles, component architecture, and clean coding practices."
                 },
                 {
-                    point: "Integrated RESTful APIs and handled frontend data flow while improving responsiveness and usability across internal product modules."
+                    "point": "Gained hands-on experience integrating REST APIs, debugging UI issues, and improving responsiveness using Tailwind CSS across internal HRMS modules."
                 },
                 {
-                    point: "Collaborated with senior developers in Agile sprints, learning production workflows, coding standards, and real-world software development practices."
+                    "point": "Collaborated with senior developers in Agile sprints, understanding real-world development workflows, version control practices, and production-level problem solving."
                 }
             ]
+
         },
         {
             logo: "/assets/logo/knackforge_logo.jpg",
@@ -76,7 +76,7 @@ const Job = () => {
             {
                 works?.map((item: any, index: any) => {
                     return (
-                        <Slide key={index} direction="left" className="md:mx-28 rounded-lg bg-(--exp-care-bg) mb-10" delay={index * 0.2}>
+                        <Slide key={index} direction="left" className="md:mx-4 lg:mx-28 rounded-lg bg-(--exp-care-bg) mb-10" delay={index * 0.2}>
                             <div className='flex flex-col md:flex-row items-start md:gap-x-8 gap-y-3 w-full h-full md:p-8 p-2 '>
                                 <div className='flex'>
                                     <div className='w-16.25 h-16.25 rounded-md border p-2.5 md:justify-center  bg-(--job-bg) border-(--job-border)'>

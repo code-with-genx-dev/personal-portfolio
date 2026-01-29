@@ -41,8 +41,10 @@
   --btn-outline-hover-border: #484848;
 
   /* Expirence card BG*/
+  --exp-care-bg: #1b1d22;
 
-  --exp-care-bg: #1f1f1f;
+  /* About card BG*/
+  --abt-card-bg:#1b1d22;
 }
 
 /* Light Theme */
@@ -83,6 +85,9 @@
 
   /* Expirence card BG*/
   --exp-care-bg: #d5d5d5;
+
+  /* About card BG*/
+  --abt-card-bg:#d5d5d5;
 }
 
 @theme inline {
