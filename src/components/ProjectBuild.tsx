@@ -1,3 +1,4 @@
+import { Slide } from "@/app/animation/Slide";
 import { useRouter } from "next/navigation";
 
 const ProjectBuild = () => {
@@ -82,7 +83,7 @@ const ProjectBuild = () => {
 
     const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
         return (
-            <div className="group flex flex-col bg-(--exp-care-bg) cursor-pointer overflow-hidden  rounded-3xl  backdrop-blur-lg shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.20)] transition-all duration-500 hover:scale-105 hover:-translate-y-3.5 pb-4">
+            <Slide delay={0.14} direction="down" className="group flex flex-col bg-(--exp-care-bg) cursor-pointer overflow-hidden  rounded-3xl  backdrop-blur-lg shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.20)] transition-all duration-500 hover:scale-105 hover:-translate-y-3.5 pb-4">
                 <img src={project.projectImg} alt={project.heading} className="w-full h-45 object-cover group-hover:scale-110 transition-all duration-500" />
                 <div className="flex flex-col gap-4 p-6">
                     <div className="flex flex-col gap-2 text-(--text-secondary)">
@@ -100,7 +101,7 @@ const ProjectBuild = () => {
                 <div className="flex items-center justify-center  mt-auto">
                     <button onClick={() => route(project?.liveLink, project?.githubLink, project?.liveDemo)} className="text-[12px] group-hover:text-[13px] bg-linear-to-br from-green-600 to-emerald-600 rounded-2xl text-white px-4 py-1 transition-all duration-500 group-hover:px-5 group-hover:py-1.5 cursor-pointer flex items-center gap-1">{project?.liveDemo ? "Live demo" : "Know more"}</button>
                 </div>
-            </div>
+            </Slide>
         )
     }
 
