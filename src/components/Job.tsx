@@ -76,7 +76,7 @@ const Job = () => {
             {
                 works?.map((item: any, index: any) => {
                     return (
-                        <Slide key={index} direction="left" className="md:mx-4 lg:mx-28 rounded-lg bg-(--exp-care-bg) mb-10" delay={index * 0.2}>
+                        <Slide key={index} direction="left" className="md:mx-4 lg:mx-28 rounded-lg bg-(--exp-care-bg) mb-10 shadow-lg" delay={index * 0.2}>
                             <div className='flex flex-col md:flex-row items-start md:gap-x-8 gap-y-3 w-full h-full md:p-8 p-2 '>
                                 <div className='flex'>
                                     <div className='w-16.25 h-16.25 rounded-md border p-2.5 md:justify-center  bg-(--job-bg) border-(--job-border)'>

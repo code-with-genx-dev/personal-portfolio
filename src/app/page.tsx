@@ -16,6 +16,7 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { useEffect, useState } from "react";
 import { MdOutlineContactMail } from "react-icons/md";
 import AboutCards from "@/components/About";
+import ProjectBuild from "@/components/ProjectBuild";
 
 export default function Home() {
   //Navbar variables.
@@ -182,8 +183,9 @@ export default function Home() {
         <div>
           <Slide delay={0.14} direction="down">
             <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">Projects</h1>
-            <div className="">
-              <Projects />
+            <div className="mx-auto ">
+              {/* <Projects /> */}
+              <ProjectBuild/>
             </div>
           </Slide>
         </div>

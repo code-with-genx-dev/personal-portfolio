@@ -1,119 +1,116 @@
-"use client";
-import { Slide } from '@/app/animation/Slide';
-import React from 'react';
+import { useRouter } from "next/navigation";
 
-interface TechStack {
-    tech: string;
-}
-
-interface Project {
-    projectImg: string;
-    heading: string;
-    subHeading: string;
-    techStack: TechStack[];
-    liveLink?: string;
-    githubLink?: string;
-}
-
-interface ProjectsProps {
-    deviceType?: {
-        mob: boolean;
-        tab: boolean;
-    }
-}
-
-const Projects: React.FC<ProjectsProps> = ({ deviceType }) => {
-    const projects: Project[] = [
+const ProjectBuild = () => {
+    const router = useRouter()
+    const projects = [
         {
             projectImg: "/assets/project/shadowqatar.svg",
             heading: "Quotation to Invoice",
-            subHeading: "A comprehensive document management solution built with Next.js and Tailwind CSS that streamlines business operations. Features secure user authentication, automated quotation-to-invoice workflows, and integrated PDF generation. Implemented RESTful API architecture with Git version control for real-time document tracking and seamless inter-module communication.",
+            subHeading:
+                "Full-stack business app automating quotations, delivery notes, invoices with secure authentication.",
             techStack: [
-                { tech: "#Next.js" },
-                { tech: "#Nest.js" },
-                { tech: "#Tailwind CSS" },
-                { tech: "#Rest API" },
-                { tech: "#JWT" },
-                { tech: "#MySQL" },
-                { tech: "#Hostinger" }
+                { tech: "Next.js" },
+                { tech: "Nest.js" },
+                { tech: "Tailwind CSS" },
+                { tech: "Rest API" },
+                { tech: "JWT" },
+                { tech: "MySQL" },
+                { tech: "Hostinger" }
             ],
             liveLink: "https://example.com",
-            githubLink: "https://github.com/username/project"
+            githubLink: "app1",
+            liveDemo: false
         },
         {
             projectImg: "/assets/project/clarks.png",
-            heading: "Online Gallery Management System for Shoe Company",
-            subHeading: "A secure, role-based gallery platform designed for design teams to collaborate efficiently. Built with approval workflows, task management, and real-time notifications to enhance operational transparency. Enables seamless upload, review, and approval processes with admin oversight.",
+            heading: "Online Gallery Management System",
+            subHeading:
+                "Role-based gallery system for uploading, reviewing, approving assets with notifications.",
             techStack: [
-                { tech: "#Next.js" },
-                { tech: "#Nest.js" },
-                { tech: "#Tailwind CSS" },
-                { tech: "#Rest API" },
-                { tech: "#FCM" },
-                { tech: "#JWT" },
-                { tech: "#MySQL" },
-                { tech: "#Hostinger" }
+                { tech: "Next.js" },
+                { tech: "Nest.js" },
+                { tech: "Tailwind CSS" },
+                { tech: "Rest API" },
+                { tech: "FCM" },
+                { tech: "JWT" },
+                { tech: "MySQL" },
+                { tech: "Hostinger" }
             ],
             liveLink: "https://example.com",
-            githubLink: "https://github.com/username/project"
+            githubLink: "app2",
+            liveDemo: false
+        },
+        {
+            projectImg: "/assets/project/qrix.png",
+            heading: "Qrix",
+            subHeading:
+                "Lightweight QR generator creating downloadable codes using public API.",
+            techStack: [
+                { tech: "React.js" },
+                { tech: "Tailwind CSS" },
+                { tech: "qrserver API" }
+            ],
+            liveLink: "https://qrix.vercel.app/",
+            githubLink: "https://github.com/username/project",
+            liveDemo: true
+        },
+        {
+            projectImg: "/assets/project/valutixx.png",
+            heading: "Vaultix",
+            subHeading:
+                "Client-side encryption tool securing messages using modern browser cryptography.",
+            techStack: [
+                { tech: "Next.js" },
+                { tech: "Tailwind CSS" },
+                { tech: "AES" }
+            ],
+            liveLink: "https://vaultixx.vercel.app/",
+            githubLink: "https://github.com/username/project",
+            liveDemo: true
         }
     ];
 
+
+
+    function route(link: any, route: any, isrouteorlink: boolean) {
+        if (isrouteorlink) {
+            window.open(link, "_blank")
+        } else {
+            router.push(`/projects/${route}`)
+        }
+    }
+
+    const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
+        return (
+            <div className="group flex flex-col bg-(--exp-care-bg) cursor-pointer overflow-hidden  rounded-3xl  backdrop-blur-lg shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.20)] transition-all duration-500 hover:scale-105 hover:-translate-y-3.5 pb-4">
+                <img src={project.projectImg} alt={project.heading} className="w-full h-45 object-cover group-hover:scale-110 transition-all duration-500" />
+                <div className="flex flex-col gap-4 p-6">
+                    <div className="flex flex-col gap-2 text-(--text-secondary)">
+                        <p className="font-semibold">{project.heading}</p>
+                        <p className="text-[12px]">{project.subHeading}</p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                        {project.techStack.map((item, index) => (
+                            <p key={index} className="text-xs text-(--text-secondary)">
+                                <span className="text-[#10b981]">#</span>{item.tech}
+                            </p>
+                        ))}
+                    </div>
+                </div>
+                <div className="flex items-center justify-center  mt-auto">
+                    <button onClick={() => route(project?.liveLink, project?.githubLink, project?.liveDemo)} className="text-[12px] group-hover:text-[13px] bg-linear-to-br from-green-600 to-emerald-600 rounded-2xl text-white px-4 py-1 transition-all duration-500 group-hover:px-5 group-hover:py-1.5 cursor-pointer flex items-center gap-1">{project?.liveDemo ? "Live demo" : "Know more"}</button>
+                </div>
+            </div>
+        )
+    }
+
     return (
-        <div className='w-full space-y-16'>
-            {projects.map((item, index) => {
-                const isEven = index % 2 === 0;
-
-                return (
-                    <Slide
-                        key={index}
-                        direction={isEven ? "left" : "right"}
-                        delay={index * 0.2}
-                    >
-                        <div className={`flex lg:flex-row flex-col ${!isEven ? 'lg:flex-row-reverse' : ''} items-start justify-between gap-8 lg:gap-12`}>
-                            {/* Project Image */}
-                            <div className='lg:w-1/2 w-full'>
-                                <div className=' rounded-lg overflow-hidden p-3 transition-colors duration-300 bg-(--project-bg) border border-(--project-border)  hover:border-(--project-hover-border) '>
-                                    <img src={item.projectImg} alt={item.heading} className='w-full h-auto md:h-75 object-cover rounded-lg hover:scale-105 transition-transform duration-300' />
-                                </div>
-                            </div>
-
-                            {/* Project Details */}
-                            <div className='lg:w-1/2 w-full flex flex-col gap-4'>
-                                <h3 className='font-incognito text-2xl md:text-3xl font-semibold text-(--text-primary)'>
-                                    {item.heading}
-                                </h3>
-                                <p className='text-(--text-secondary) text-[14px] md:text-[14px] leading-relaxed'>
-                                    {item.subHeading}
-                                </p>
-                                <div className='flex flex-wrap gap-2 mt-2'>
-                                    {item.techStack.map((tech, techIndex) => (
-                                        <span key={techIndex} className='px-3 py-1.5 cursor-pointer text-(--text-muted) rounded-full text-xs md:text-sm bg-(--project-chip-bg) border border-(--project-border) font-medium hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-(--text-primary) transition-colors duration-200'>
-                                            {tech.tech}
-                                        </span>
-                                    ))}
-                                </div>
-
-                                {/* Links */}
-                                <div className='flex gap-4 mt-4'>
-                                    {item.liveLink && (
-                                        <a href={item.liveLink} target='_blank' rel='noopener noreferrer' className='px-4 py-2  bg-(--btn-primary-bg) text-(--btn-primary-text)  hover:bg-(--btn-primary-hover) font-medium  rounded-md text-sm font-mediumtransition-colors duration-200'>
-                                            Live Demo
-                                        </a>
-                                    )}
-                                    {item.githubLink && (
-                                        <a href={item.githubLink} target='_blank' rel='noopener noreferrer' className='px-4 py-2 border rounded-md text-sm font-medium border-(--btn-outline-border) text-(--btn-outline-text) hover:bg-(--btn-outline-hover-bg) hover:border-(--btn-outline-hover-border) transition-colors duration-200'>
-                                            View Code
-                                        </a>
-                                    )}
-                                </div>
-                            </div>
-                        </div>
-                    </Slide>
-                );
-            })}
+        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14 lg:gap-16  ">
+            {projects.map((project, index) => (
+                <ProjectCard key={index} project={project} />
+            ))}
         </div>
-    );
-};
+    )
+}
 
-export default Projects;
+export default ProjectBuild
