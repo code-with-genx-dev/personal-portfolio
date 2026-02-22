@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat, Squada_One } from "next/font/google";
 import "./globals.css";
 import { DeviceProvider } from "@/components/DeviceProvider";
+import SmoothScroll from "./scrollTrigger/SmoothScroll";
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -34,9 +35,11 @@ export default function RootLayout({
         <link rel="icon" href="/assets/skill.png" type="image/icon type"></link>
       </head>
       <body className={`${montserrat.variable}  ${squadaOne.variable} antialiased `}>
+        <SmoothScroll>
         <DeviceProvider>
           {children}
         </DeviceProvider>
+        </SmoothScroll>
       </body>
     </html>
   );

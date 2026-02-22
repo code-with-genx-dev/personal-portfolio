@@ -179,22 +179,21 @@ export default function Home() {
       </section>
 
       {/* Projects section*/}
-      <section id="projects" className="text-(--text-primary) mx-5 md:mx-16 pb-30">
+      <section id="projects" className="text-(--text-primary) mx-5 md:mx-16 pt-5 pb-30">
         <div>
-          <Slide delay={0.14} direction="down">
+          {/* <Slide delay={0.14} direction="down"> */}
             <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">Projects</h1>
             <div className="mx-auto ">
-              {/* <Projects /> */}
               <ProjectBuild/>
             </div>
-          </Slide>
+          {/* </Slide> */}
         </div>
       </section>
 
       {/* contact section*/}
-      <section id="contact" className="text-(--text-primary) mx-5 md:mx-16 pt-10 pb-32">
+      <section id="contact" className="text-(--text-primary) mx-5 md:mx-16 pt-28 pb-40">
         <div className="flex items-center justify-center">
-          <Slide delay={0.14} direction="down" className="flex flex-col gap-3">
+          <Slide delay={0.5} direction="down" className="flex flex-col gap-3">
             <h1 className="font-incognito text-4xl mb-5 text-center text-(--text-primary)">Lets Connects</h1>
             <div className="text-center text-[16px] text-(--text-secondary)">Interested in projects, career advice, job opportunities, or portfolio feedback? Book a call and let’s talk!</div>
             <div className="flex items-center justify-center">
@@ -210,7 +209,7 @@ export default function Home() {
       </section>
 
       {/* Footer section */}
-      <footer className="text-(text-primary) mx-5 md:mx-16 ">
+      <footer className="text-(text-primary) mx-5 md:mx-16 pt-10">
         <hr className="border border-(--btn-outline-border) font-extralight mb-8" />
         <div className="flex md:flex-row flex-col md:justify-between md:gap-0 gap-y-10 items-center pb-34 md:px-5">
           <BuildWith technologies={techs} />
