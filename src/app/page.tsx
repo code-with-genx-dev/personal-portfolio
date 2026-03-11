@@ -25,7 +25,7 @@ export default function Home() {
     { name: "Work", link: "#work" },
     { name: "Projects", link: "#projects" },
     { name: "Contact", link: "#contact" },
-    { name: "Resume", link: "https://drive.google.com/file/d/1LopJaTaKwTFeTMUwwizOXsczeGcem6vW/view?usp=sharing" }
+    { name: "Resume", link: "https://drive.google.com/file/d/1lVhuICcVEgExAw1IsOR8SyTB-aZqTWLd/view?usp=sharing" }
   ];
 
   const footnavs = [
@@ -33,7 +33,7 @@ export default function Home() {
     { Icon: GoProject, nav: "Work", link: "#work" },
     { Icon: GoFileDirectory, nav: "Projects", link: "#projects" },
     { Icon: MdOutlineContactMail, nav: "Contact", link: "#contact" },
-    { Icon: AiOutlineFilePdf, nav: "Resume", link: "https://drive.google.com/file/d/1LopJaTaKwTFeTMUwwizOXsczeGcem6vW/view?usp=sharing" },
+    { Icon: AiOutlineFilePdf, nav: "Resume", link: "https://drive.google.com/file/d/1lVhuICcVEgExAw1IsOR8SyTB-aZqTWLd/view?usp=sharing" },
   ];
 
   //Social media links
