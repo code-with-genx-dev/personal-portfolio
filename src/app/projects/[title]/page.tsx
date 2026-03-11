@@ -163,7 +163,7 @@ const ProjectDetailPage = () => {
         <div className="min-h-screen bg-(--bg-primary) py-16 px-4 md:px-8 lg:px-16">
             <div className="mx-0 md:mx-36">
                 {/* Back Button */}
-                <button onClick={() => router.back()} className="mb-10 text-(--text-secondary) hover:text-[#10b981]! flex items-center gap-2 transition-colors cursor-pointer text-lg">
+                <button onClick={() => router.push('/#projects')} className="mb-10 text-(--text-secondary) hover:text-[#10b981]! flex items-center gap-2 transition-colors cursor-pointer text-lg">
                     ← Back to Projects
                 </button>
 
@@ -266,7 +266,7 @@ const ProjectDetailPage = () => {
 
 
                 <div className='flex items-center justify-center'>
-                    <button onClick={() => router.back()} className="text-md md:text-lg bg-linear-to-br from-green-600 to-emerald-600 rounded-xl text-white px-4 py-1 transition-all duration-500  cursor-pointer flex items-center gap-1">
+                    <button onClick={() => router.push('/#projects')} className="text-md md:text-lg bg-linear-to-br from-green-600 to-emerald-600 rounded-xl text-white px-4 py-1 transition-all duration-500  cursor-pointer flex items-center gap-1">
                         Back to Projects
                     </button>
                 </div>

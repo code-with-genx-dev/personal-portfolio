@@ -7,7 +7,7 @@ const Job = () => {
             logo: "/assets/logo/abshrms_logo.jpg",
             org: "Ardens Business Solutions",
             role: "Frontend Developer",
-            duration: "SEP 11 2024 - Present",
+            duration: "SEP 11 2024 - MAR 03 2026",
             description: [
                 {
                     "point": "Led frontend development of HRMS modules including Leave, Attendance using Next.js, TypeScript, and Tailwind CSS with scalable component architecture and modular design patterns."
