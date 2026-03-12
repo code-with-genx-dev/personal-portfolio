@@ -21,12 +21,12 @@ const squadaOne = Squada_One({
 
 export const metadata: Metadata = {
   title: {
-    default: "Visva V | Frontend Developer in Chennai",
+    default: "Visva V | Frontend Developer",
     template: "%s | Visva V",
   },
 
   description:
-    "Visva V is a Frontend Developer based in Chennai with 1+ years of experience in Next.js and React.js, building scalable HRMS modules, ERP systems, and business web applications with RESTful API integration.",
+    "Visva V is a Frontend Developer based in Chennai with 1.5+ years of experience in Next.js and React.js, building scalable HRMS modules, ERP systems, and business web applications with RESTful API integration.",
 
   keywords: [
     "Visva V",
@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     "ERP Web Application Developer",
     "REST API Integration Developer",
     "TypeScript Developer India",
+    "Visva portfolio"
   ],
 
   authors: [{ name: "Visva V" }],
