@@ -5,6 +5,25 @@ const ProjectBuild = () => {
     const router = useRouter()
     const projects = [
         {
+            projectImg: "/assets/project/career.png",
+            heading: "CareerCompass",
+            subHeading:
+                "CareerCompass AI – An AI-powered platform analyzing personality, aptitude, interests, and academics to recommend ideal career paths with a personalized 5-year roadmap.",
+            techStack: [
+                { tech: "React.js" },
+                { tech: "Express.js" },
+                { tech: "Tailwind CSS" },
+                { tech: "REST Api's" },
+                { tech: "Node.js" },
+                { tech: "PostgreSQL" },
+                { tech: "Vercel" },
+                { tech: "Render" },
+            ],
+            liveLink: "https://career-client-eight.vercel.app/",
+            githubLink: "app1",
+            liveDemo: true
+        },
+        {
             projectImg: "/assets/project/shadowqatar.svg",
             heading: "Quotation to Invoice",
             subHeading:
@@ -81,9 +100,9 @@ const ProjectBuild = () => {
         }
     }
 
-    const ProjectCard = ({ project ,index}:any) => {
+    const ProjectCard = ({ project, index }: any) => {
         return (
-            <Slide direction="down" delay={0.5} key={index} className="group/card flex flex-col bg-(--exp-care-bg) cursor-pointer overflow-hidden rounded-3xl  backdrop-blur-lg shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.20)] transition-all duration-600 hover:-translate-y-4 pb-4">
+            <Slide direction="down" delay={0.5} key={index} className="group/card flex flex-col bg-(--exp-care-bg) cursor-pointer overflow-hidden rounded-3xl  backdrop-blur-lg shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.20)] transition-all duration-1000 hover:-translate-y-4 pb-4">
                 <img src={project.projectImg} alt={project.heading} className="w-full h-45 object-cover group/card-hover:scale-110 transition-all duration-700" />
                 <div className="flex flex-col gap-4 p-6">
                     <div className="flex flex-col gap-2 text-(--text-secondary)">
@@ -91,7 +110,7 @@ const ProjectBuild = () => {
                         <p className="text-[12px]">{project.subHeading}</p>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                        {project.techStack.map((item:any, index:any) => (
+                        {project.techStack.map((item: any, index: any) => (
                             <p key={index} className="text-xs text-(--text-secondary)">
                                 <span className="text-[#10b981]">#</span>{item.tech}
                             </p>

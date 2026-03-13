@@ -8,7 +8,6 @@ import HeroSvg from "./assets/Herosvg";
 import { Slide } from "./animation/Slide";
 import { useDevice } from "@/components/DeviceProvider";
 import Job from "@/components/Job";
-import Projects from "@/components/ProjectBuild";
 import Skills from "@/components/Skills";
 import BuildWith from "@/components/BuidWith";
 import ChatBot from "@/components/Chatbot";
@@ -47,6 +46,7 @@ export default function Home() {
   const { isTablet, isDesktop } = useDevice();
 
   const [activeSection, setActiveSection] = useState("home");
+  console.log(activeSection)
 
   const techs = [
     { name: "Next.js", icon: "nextjs" },
@@ -63,7 +63,7 @@ export default function Home() {
           }
         });
       },
-      { threshold: 0.5 }
+      { threshold: 0.2 }
     );
 
     ["home", "work", "projects", "contact"].forEach((id) => {
@@ -135,7 +135,7 @@ export default function Home() {
                 Frontend engineer, component architect & design systems specialist
               </p>
               <br />
-              <p className="md:text-[16px] text-[14px] md:w-[90%] text-(--text-secondary)">I'm <span className="text-[#10b981]">Visva V</span>, a frontend developer with 1+ year experience in React.js and Next.js, building scalable, user-focused, modern, production-ready web applications.</p>
+              <p className="md:text-[16px] text-[14px] md:w-[90%] text-(--text-secondary)">I'm <span className="text-[#10b981]">Visva V</span>, a frontend developer with 1.5+ year experience in React.js and Next.js, building scalable, user-focused, modern, production-ready web applications.</p>
             </div>
             <Slide delay={0.14} direction="left" className="flex items-center gap-4 pt-8">
               {socials.map(({ Icon, link }: any, index: any) => (
@@ -161,8 +161,8 @@ export default function Home() {
       <section id="about" className="text-(--text-primary) mx-5 md:mx-16 pt-20 pb-26">
         <div>
           <Slide delay={0.14} direction="down" className="flex flex-col items-center">
-              <h1 className="font-incognito text-4xl text-center mb-4 text-(--text-primary)">ABOUT ME!</h1>
-              <AboutCards />
+            <h1 className="font-incognito text-4xl text-center mb-4 text-(--text-primary)">ABOUT ME!</h1>
+            <AboutCards />
           </Slide>
         </div>
 
@@ -172,8 +172,8 @@ export default function Home() {
       <section id="work" className="text-(--text-primary) mx-5 md:mx-16 pt-10 pb-24">
         <div>
           <Slide delay={0.14} direction="down">
-              <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">WORK EXPERIENCE</h1>
-              <Job />
+            <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">WORK EXPERIENCE</h1>
+            <Job />
           </Slide>
         </div>
       </section>
@@ -182,10 +182,10 @@ export default function Home() {
       <section id="projects" className="text-(--text-primary) mx-5 md:mx-16 pt-5 pb-30">
         <div>
           {/* <Slide delay={0.14} direction="down"> */}
-            <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">Projects</h1>
-            <div className="mx-auto ">
-              <ProjectBuild/>
-            </div>
+          <h1 className="font-incognito text-4xl mb-14 text-(--text-primary)">Projects</h1>
+          <div className="mx-auto ">
+            <ProjectBuild />
+          </div>
           {/* </Slide> */}
         </div>
       </section>
