@@ -1,28 +1,11 @@
-import { Slide } from "@/app/animation/Slide";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const ProjectBuild = () => {
-    const router = useRouter()
+    const router = useRouter();
+    const [projectCount, setProjectCount] = useState<any>(3);
+
     const projects = [
-        {
-            projectImg: "/assets/project/career.png",
-            heading: "CareerCompass",
-            subHeading:
-                "CareerCompass AI – An AI-powered platform analyzing personality, aptitude, interests, and academics to recommend ideal career paths with a personalized 5-year roadmap.",
-            techStack: [
-                { tech: "React.js" },
-                { tech: "Express.js" },
-                { tech: "Tailwind CSS" },
-                { tech: "REST Api's" },
-                { tech: "Node.js" },
-                { tech: "PostgreSQL" },
-                { tech: "Vercel" },
-                { tech: "Render" },
-            ],
-            liveLink: "https://career-client-eight.vercel.app/",
-            githubLink: "app1",
-            liveDemo: true
-        },
         {
             projectImg: "/assets/project/shadowqatar.svg",
             heading: "Quotation to Invoice",
@@ -61,6 +44,42 @@ const ProjectBuild = () => {
             liveDemo: false
         },
         {
+            projectImg: "/assets/project/taskflow.png",
+            heading: "TaskFlow Board",
+            subHeading:
+                "TaskFlow Board – A fully client-side Kanban-style task management platform enabling users to organize, track, and manage tasks efficiently using Zustand for state management and LocalStorage for persistent data storage without backend integration.",
+            techStack: [
+                { tech: "React.js" },
+                { tech: "Tailwind CSS" },
+                { tech: "Zustand" },
+                { tech: "LocalStorage" },
+                { tech: "dnd toolkit" },
+                { tech: "Vercel" }
+            ],
+            liveLink: "https://taskxflow.vercel.app/",
+            githubLink: "app1",
+            liveDemo: true
+        },
+        {
+            projectImg: "/assets/project/career.png",
+            heading: "CareerCompass",
+            subHeading:
+                "CareerCompass AI – An AI-powered platform analyzing personality, aptitude, interests, and academics to recommend ideal career paths with a personalized 5-year roadmap.",
+            techStack: [
+                { tech: "React.js" },
+                { tech: "Express.js" },
+                { tech: "Tailwind CSS" },
+                { tech: "REST Api's" },
+                { tech: "Node.js" },
+                { tech: "PostgreSQL" },
+                { tech: "Vercel" },
+                { tech: "Render" },
+            ],
+            liveLink: "https://career-client-eight.vercel.app/",
+            githubLink: "app1",
+            liveDemo: true
+        },
+        {
             projectImg: "/assets/project/qrix.png",
             heading: "Qrix",
             subHeading:
@@ -90,7 +109,7 @@ const ProjectBuild = () => {
         }
     ];
 
-
+    const data = projects.slice(0, projectCount)
 
     function route(link: any, route: any, isrouteorlink: boolean) {
         if (isrouteorlink) {
@@ -102,7 +121,7 @@ const ProjectBuild = () => {
 
     const ProjectCard = ({ project, index }: any) => {
         return (
-            <Slide direction="down" delay={0.5} key={index} className="group/card flex flex-col bg-(--exp-care-bg) cursor-pointer overflow-hidden rounded-3xl  backdrop-blur-lg shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.20)] transition-all duration-1000 hover:-translate-y-4 pb-4">
+            <div key={index} className="group/card flex flex-col bg-(--exp-care-bg) cursor-pointer overflow-hidden rounded-3xl  backdrop-blur-lg shadow-[0_4px_16px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_32px_rgba(16,185,129,0.20)] transition-all duration-1000 hover:-translate-y-4 pb-4">
                 <img src={project.projectImg} alt={project.heading} className="w-full h-45 object-cover group/card-hover:scale-110 transition-all duration-700" />
                 <div className="flex flex-col gap-4 p-6">
                     <div className="flex flex-col gap-2 text-(--text-secondary)">
@@ -120,16 +139,23 @@ const ProjectBuild = () => {
                 <div className="flex items-center justify-center  mt-auto">
                     <button onClick={() => route(project?.liveLink, project?.githubLink, project?.liveDemo)} className="text-[12px] group/card-hover:text-[13px] bg-linear-to-br from-green-600 to-emerald-600 rounded-2xl text-white px-4 py-1 transition-all duration-500 group/card-hover:px-5 group/card-hover:py-1.5 cursor-pointer flex items-center gap-1">{project?.liveDemo ? "Live demo" : "Know more"}</button>
                 </div>
-            </Slide>
+            </div>
         )
     }
 
     return (
-        <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14 lg:gap-16">
-            {projects.map((project, index) => (
-                <ProjectCard key={index} project={project} />
-            ))}
-        </div>
+        <>
+            <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-14 lg:gap-16">
+                {data.map((project, index) => (
+                    <ProjectCard key={index} project={project} />
+                ))}
+            </div>
+            <div className="mt-10 flex items-center justify-center">
+                <button onClick={() => projectCount > 3 ? setProjectCount(3) : setProjectCount(projects.length)} className="text-[13px]  bg-linear-to-br from-green-600 to-emerald-600 rounded-2xl text-white px-4 py-1 transition-all duration-500 cursor-pointer flex items-center gap-1">
+                    {projectCount > 3 ? "See less" : "See more"}
+                </button>
+            </div>
+        </>
     )
 }
 
